@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>console-log hacks!</title>
+
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Indie Flower', cursive;
+            font-size: x-large;
+            background-image: url("../IMG/notepad.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        dl {
+            font-family: Courier;
+            text-align: start;
+            margin-left: 10%;
+            line-height: 2.2rem;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>CONSOLE-LOG HACKS!</h1>
+<p>Hacks I've learned and cherished :) Brought to you by the megaminds I found on Google!</p>
+
+<dl>
+    <dt>COMPUTED PROPERTY NAMES</dt>
+    <dd>Add the variable names to an object: console.log( {food, app, dessert} );</dd>
+    <dt>ADD CSS STYLE IN THE CONSOLE</dt>
+    <dd>[% + c] i.e. console.log('%c Hello World', 'color: pink; font-weight: bold;');</dd>
+    <dt>CONSOLE.TABLE</dt>
+    <dd>It <em>LITERALLY</em> shows a table for better reading.</dd>
+    <dd>EX: <img src="../IMG/console-table-object-of-objects.png"></dd>
+    <dt>CONSOLE.time/timeEnd</dt>
+    <dd>Logs the run time!</dd>
+    <dt>CONSOLE.TRACE</dt>
+    <dd>Traces which function gets called each time; must attach this tag in order to work</dd>
+</dl>
+
+
+<script>
+    const food = {
+        name: "pizza",
+        topping: "cheese",
+        size: "large"
+    }
+
+    const app = {
+        name: "cheese-sticks",
+        topping: "marinara sauce",
+        size: "small"
+    }
+
+    const dessert = {
+        name: "cupcakes",
+        topping: "strawberries",
+        size: "medium"
+    }
+
+    //BAD CODE: TOO LONG AND REPETITIVE
+    console.log(food);
+    console.log(app);
+    console.log(dessert);
+
+    //THIS INSTEAD; ONE LINE WITH ALL THE INFORMATION NEEDED :)
+    console.log( {food, app, dessert} );
+
+    //YOU CAN ADD CSS IN THE CONSOLE WITH A % + c
+    console.log('%c Hello World', 'color: pink; font-weight: bold;');
+    console.log('%c I see you..', 'color: blue; text-decoration: underline;');
+
+    //TABLE
+    console.table([food, app, dessert]);
+
+    //SETTING UP A TIMER
+    console.time('looper'); //DEFINE TIMER
+
+    let i = 0;
+    while(i < 1000000) { //GOES THROUGH A MILLION ITERATIONS
+        i ++
+    }
+
+    console.timeEnd('looper'); //END
+
+    //STACK TRACE LOGS
+    const deleteMe = () => console.trace('bye bye bye');
+
+    deleteMe();
+
+
+    const cat = {
+        name: "tammy",
+        type: "tortoiseshell",
+        age: "unknown",
+        gender: "female",
+        fixed: false,
+        meal: 2,
+        diet: "non-wet food",
+        skills: [
+            "biscuits",
+            "sassy",
+        ]
+    }
+
+    console.table([cat]);
+
+    //DECONSTRUCTING OBJECTS FOR BETTER READING AND CALLBACKS
+    function feed({name, meal, diet}) { //PASSING OBJECT PROPERTIES WE NEED IN THE PARAMETER USING CURLY BRACKETS
+        alert(`Please feed ${name} ${meal} kilos of ${diet}`);
+    }
+    feed(cat);
+
+    //OR
+
+    // let {name, meal, diet} = cat;
+    // console.log(`Please feed ${name} ${meal} kilos of ${diet}`);
+
+
+    let {name, gender, skills} = cat;
+    let bio = `${name} is a ${gender} cat skilled in ${skills}!`;
+    console.log(bio);
+
+    //ADVANCED TAG WITH TEMPLATE LITERALS
+    function catAge(str, age) {
+        const ageStr = age > 5 ? 'old' : 'young';
+        return `${str[0]}${ageStr} at ${age} years`;
+    }
+
+    let bio2 = catAge`This cat is ${cat.age}`;
+    console.log(bio2);
+
+
+    const pikachu = {
+        name: "Pikachu"
+    };
+    const stats = {
+        hp: 40,
+        attack: 60,
+        defense: 45
+    }
+
+    const lv10 = Object.assign(pikachu, stats); //THIS METHOD MERGES THEM TOGETHER
+    console.log(lv10);
+
+    const lv1 = Object.assign(pikachu, {hp: 50} ); //UPDATES THE DATA IN THE OBJECT
+    console.log(lv1);
+
+    //OR
+
+    const lv11 = {...pikachu, ...stats}; //THE SUGAR VERSION OF Object.assign
+    console.log(lv11);
+    const lv2 = {...pikachu, hp: 65 };
+    console.log(lv2);
+
+
+    let fruits = [
+        "apple",
+        "plum",
+        "kiwi",
+        "pineapple",
+        "orange"
+    ]
+
+    //NEW METHOD FOR .push IN A ARRAY
+    fruits = [...fruits, "mango", "watermelon", "grapefruit"];
+    console.log(fruits);
+
+    //NEW METHOD FOR .shift IN A ARRAY
+    fruits = ["mango", "watermelon", "grapefruit", ...fruits];
+    console.log(fruits);
+
+    //LOOPS
+    const orders = [500, 30, 99, 15, 223];
+    console.table([orders]);
+    console.log(orders);
+
+    //BAD CODE: LOOPS
+    let total = 0;
+    const withTax = [];
+    const highValue = [];
+    for(let i = 0; i < orders.length; i++) {
+        //REDUCE
+        total += orders[i];
+
+        //MAP
+        withTax.push(orders[i] * 1.1);
+
+        //FILTER
+        if(orders[i] > 100) {
+            highValue.push(orders[i]);
+        }
+    }
+
+    console.log(total);
+    console.table([withTax]);
+    console.table([highValue]);
+
+
+    //REDUCE
+    const total2 = orders.reduce((acc, cur) => acc + cur); // 1:ACCUMULATED VALUE 2:CURRENT VALUE = SUM OF ALL
+    console.log(total2);
+
+    //MAP
+    const withTax2 = orders.map(v => v * 1.1); //TARGETS EACH VALUE
+    console.log(withTax2);
+    console.table([withTax2]);
+
+    //FILTER
+    const highValue2 = orders.filter(v => v > 100);
+    console.log(highValue2);
+
+    //PROMISE
+    const random = () => {
+        return Promise.resolve(Math.random());
+    }
+
+    //BAD CODE: PROMISE
+    const sumRandomAsyncNums = () => {
+        let first;
+        let second;
+        let third;
+
+        return random()
+            .then(v => {
+                first = v;
+                return random();
+            })
+            .then(v => {
+                second = v;
+                return random();
+            })
+            .then(v => {
+                third = v;
+                return first + second + third;
+            })
+            .then(v => {
+                console.log(`Result ${v}`);
+            })
+    }
+
+    console.log(random(sumRandomAsyncNums()));
+
+
+    //GOOD CODE
+    const sumRandom2 = async() => {
+        const uno = await random();
+        const dos = await random();
+        const tres = await random();
+        console.log(`Result ${uno + dos + tres}`);
+    }
+    console.log(random(sumRandom2()));
+
+</script>
+
+</body>
+</html>
