@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MY MOVIE APP</title>
+
+</head>
+<body>
+
+<div class="search-container">
+    <div class="search-body" id="searchContent">
+        <h1>HBO-Minimum</h1>
+        <input type="text" class="form-control search-input" placeholder="Find a movie.." onkeyup="searchMovie()">
+
+        <div class="card" id="cardSearchMovie">
+            <div class="cardBody">
+                <h3>Title</h3>
+                <img src= "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" class="search-poster">
+                <p class="search-year">2020</p>
+                <p class="search-rated">R</p>
+                <p class="search-rating">10/10</p>
+                <button type="submit" id="add">Add Movie</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--JQUERY-->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<!--MY CREDS-->
+<script src="../JS/my-keys.js"></script>
+<!--EXTERNAL JS-->
+<script src="../JS/movie-app.js"></script>
+
+
+
+</body>
+</html>
