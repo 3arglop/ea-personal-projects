@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS BASICS</title>
+</head>
+<body>
+
+<h1>JAVASCRIPT, WE MEET AGAIN...</h1>
+
+
+
+
+
+<script>
+
+    let hello = "Hello World";
+    console.log(hello);
+
+    let ten = 10;
+    console.log(ten);
+
+    let isOpen = true;
+    console.log(isOpen);
+
+    let array = [1, 2, 3, 4, 5, NaN];
+    console.log(array);
+
+    let people = {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "age": 24,
+        "rich": false,
+    }
+    console.log(people);
+
+    let data = [
+        {
+            name: "Lou",
+            age: 35,
+            gender: "female",
+            rich: true
+
+        },
+        {
+            name: "Joe",
+            age: 35,
+            gender: "male",
+            rich: false
+        }
+    ]
+    console.log(data);
+
+
+
+    let score = 0;
+    console.log(score);
+    score += 5;
+    console.log(score);
+
+
+    let greeting = "         hey!!!!!!! nice seeing yah :)       ";
+    console.log(greeting);
+    let newGreeting = greeting.trim().toUpperCase();
+    console.log(newGreeting);
+
+    // greeting.trim().toUpperCase();
+    // console.log(greeting);
+
+
+    const message = "    TASTE THE RAINBOW!  ";
+    console.log(message);
+    let whisper = message.trim().toLowerCase();
+    console.log(whisper);
+
+    let word = "skateboard";
+    console.log(word);
+
+    let facialHair = word.slice(5).replace("o", "e");
+    console.log(facialHair);
+
+    let step1 = Math.random();
+    console.log(step1);
+    let step2 = step1 * 100;
+    console.log(step2);
+    let step3 = Math.floor(step2);
+    console.log(step3);
+    let step4 = step3 + 30;
+    console.log(step4);
+
+    let allSteps = Math.floor(Math.random() * 100) + 30;
+    console.log(allSteps);
+
+
+    const die1 = Math.floor(Math.random() * 6) + 1; //random number from 1-6
+    const die2 = Math.floor(Math.random() * 6) + 1; //random number from 1-6
+    let sum = die1 + die2;
+    console.log(die1);
+    console.log(die2);
+    console.log(sum);
+
+    let roll = `die1: ${die1}. die2: ${die2}. roll: "You rolled a ${die1} and a ${die2}. They sum to ${sum}."`;
+    console.log(roll);
+
+    let random = Math.random();
+    console.log(random);
+
+    if(random < 0.5) {
+        console.log("YOUR NUMBER IS LESS THAN 0.5!!!");
+        console.log(`YOUR NUMBER WAS: ${random}`);
+    }
+
+    if(random >= 0.5) {
+        console.log("YOUR NUMBER IS GREATER THAN 0.5!!!");
+        console.log(`YOUR NUMBER WAS: ${random}`);
+    }
+
+    function isEven(num){
+        if(num % 2 === 0) {
+            console.log("even");
+        }
+    }
+
+    console.log(isEven(10));
+    console.log(isEven(99999));
+    console.log(isEven(534));
+
+
+    function getColor(phrase){
+        if(phrase === 'stop') {
+            console.log("red");
+        } else if(phrase === 'slow') {
+            console.log("yellow");
+        } else if(phrase === 'go') {
+            console.log("green");
+        } else {
+            console.log("purple");
+        }
+    }
+
+    getColor("stop");
+    getColor("away");
+    getColor("slow");
+
+
+    // Change the value of num, so that "YOU GOT ME!" prints out
+    const num = 102; // THIS IS THE ONLY LINE YOU SHOULD CHANGE :)
+
+    // DO NOT TOUCH ANYTHING BELOW (please)
+    if(num <= 100) {
+        if(num >= 50) {
+            console.log("HEY!");
+        }
+    } else {
+        if (num < 103) {
+            if(num % 2 === 0){
+                console.log("YOU GOT ME!");
+            }
+        }
+    }
+
+
+    const mystery = 'Piepie   7';
+    //CHANGE THIS VALUE TO MAKE THE CONDITIONAL BELOW TRUE
+
+    if(mystery[0] === 'P' && mystery.length > 5 && mystery.indexOf('7') !== -1){
+        console.log("YOU GOT IT!!!");
+    }
+
+    const day = 100;
+
+    switch(day) {
+        case 1:
+            console.log("Monday");
+            break;
+        case 2:
+            console.log("Tuesday");
+            break;
+        case 3 :
+            console.log("Wednesday");
+            break;
+        case 4:
+            console.log("Thursday");
+            break;
+        case 5:
+            console.log("Friday");
+            break;
+        default:
+            console.log("IDK!!!!!");
+    }
+
+    let randomNum = Math.floor(Math.random() * 6) + 1;
+    console.log(`You got number ${randomNum}.`);
+
+    //MY FIRST FUNCTION
+    function singSong() {
+        //CODE EXECUTES ONLY WHEN EXECUTED
+        console.log("DO");
+        console.log("RE");
+        console.log("MI");
+    }
+
+    singSong();
+
+    function printHeart() {
+        console.log("<3");
+    }
+    printHeart();
+
+    const rant = (message) => {
+        console.log(message.toUpperCase());
+        console.log(message.toUpperCase());
+        console.log(message.toUpperCase());
+    }
+
+    rant("idk man, i really hate beets");
+    rant("why me????");
+    rant("i hate bullies :(");
+
+
+
+
+
+
+    const info = [
+        {
+            name: "Michael",
+            age: "35",
+            gender: "M",
+        },
+        {
+            name: "Jen",
+            age: "62",
+            gender: "F"
+        },
+        {
+            name: "Jon",
+            age: "22",
+            gender: "M"
+        },
+        {
+            name: "Sam",
+            age: "36",
+            gender: "F"
+        }
+    ]
+
+    const renderData = (data) => {
+        let newHtml = ''; //INDICATING A NEW EMPTY STRING TO GIVE OFF A NEW RESULT WITH MY NEW INNER HTML THAT WILL REPLACE MY OLD HTML WITH THE NEW DATA
+        // for(const data of info) {
+        //     console.log(newHtml += `Hello ${data.name}`);
+        // }
+
+        for(let i = 0; i < info.length; i++) {
+            console.log(newHtml += `Hello, ${info.name}. Nice seeing yah!`);
+        }
+    }
+
+    renderData();
+
+</script>
+
+</body>
+</html>
