@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A+E+D</title>
+
+    <!--BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center">Budget Manager</h1>
+<p style="text-align: center">(ADD, EDIT, DELETE PRACTICE)</p>
+
+<div class="row">
+
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+
+        <div class="card card-body">
+
+            <button class="btn btn-sm btn-danger" id="add-bill">ADD BILL</button>
+
+            <div class="form-wrapper hidden">
+                <select class="form-control" id="bill-name">
+                    <option>---------------------</option>
+                    <option>Rent</option>
+                    <option>Electrical</option>
+                    <option>Gas</option>
+                </select>
+
+                <input class="form-control" type="text" id="bill-cost">
+                <button class="btn btn-sm btn-warning" id="create-bill">ADD</button>
+
+            </div>
+
+        </div>
+
+
+        <table class="table table-dark">
+
+            <thead>
+            <tr>
+                <th scope="col">BILL NAME</th>
+                <th scope="col">COST</th>
+            </tr>
+            </thead>
+
+            <tbody id="bill-table">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="col-md-4"></div>
+
+</div>
+
+<!--JQUERY-->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<!--THE FUN STUFF-->
+<script>
+
+    let bills = [
+        {
+            id: 1,
+            name: "Rent",
+            cost: "525.00"
+        },
+        {
+            id: 2,
+            name: "Electrical",
+            cost: "70.00"
+        },
+        {
+            id: 3,
+            name: "Groceries",
+            cost: "220.00"
+        }
+    ]
+
+    console.log(bills);
+    console.table(bills);
+
+    function addRow(object) {
+        let row = `<tr scope="row" class="text-row-${obj.id}">
+
+</tr>`
+    }
+
+
+</script>
+</body>
+</html>
