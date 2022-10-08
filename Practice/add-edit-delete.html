@@ -78,6 +78,7 @@
 <!--THE FUN STUFF-->
 <script>
 
+    //TESTING A NEW ARRAY
     let newId = 4;
     let newBill = {"id": newId, "name": null, "cost": null};
 
@@ -124,10 +125,12 @@
     console.log(bills);
     console.table(bills);
 
+    //ITERATING THROUGH MY BILLS DATA
     for(let i in bills) {
         addRow(bills[i]);
     }
 
+    //CREATING MY DYNAMIC HTML WITH BILLS DATA
     function addRow(object) {
         let row = `
                     <tr scope="row" id="text-row-${object.id}">
@@ -158,7 +161,7 @@
         //CREATING A VARIABLE THAT HOLDS THE VALUE THE USER INPUTS WHEN EDITING THE COST OF BILL ADDED TO THE LIST
         let value = $(this).html();
 
-        //GOT TO UNBIND THIS SO THE INPUT FORM DOESN'T SHOWCASE THE NEW DYNAMIC HTML WITHIN THE FORM
+        //GOT TO UNBIND THIS SO THE INPUT FORM DOESN'T SHOWCASE THE NEW DYNAMIC HTML WITHIN THE FORM, JUST THE VALUE
         $(this).unbind();
 
         //ADDING A DYNAMIC HTML TO CHANGE THE COST WHEN THE BUTTON IS CLICKED
@@ -201,6 +204,7 @@
        const confirmBtn = document.getElementById(`confirm-${testid}`);
 
 
+       //TOGGLING MY HIDDEN CLASS
        deleteBtn.classList.add('hidden');
        saveBtn.classList.add('hidden');
 
@@ -218,7 +222,7 @@
         const cancelBtn = document.getElementById(`cancel-${testid}`);
         const confirmBtn = document.getElementById(`confirm-${testid}`);
 
-
+        //TOGGLING MY HIDDEN CLASS
         deleteBtn.classList.remove('hidden');
         saveBtn.classList.remove('hidden');
 
