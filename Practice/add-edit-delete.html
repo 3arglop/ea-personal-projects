@@ -9,11 +9,78 @@
 
     <!--BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
 <!--CSS INTERNAL-->
     <style>
         .hidden {
             display: none;
+        }
+
+        body {
+            background-image: url("../IMG/abstract-14.jpeg");
+            min-height: 100vh;
+            background-position: center center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        #card-container {
+            margin-top: 5rem;
+        }
+
+        h1 {
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border: dotted white;
+            border-width: 10px 4px;
+            border-radius: 10px 40px;
+            line-height: 4rem;
+            opacity: 80%;
+        }
+
+        .card-body {
+            padding: .3rem;
+            background-color: slategrey;
+        }
+
+        #add-bill {
+            background-color: #7FD0B0;
+            color: #0F4E41;
+            font-size: 1.2rem;
+        }
+
+        #add-bill:hover {
+            background-color: #483A8F;
+            color: white;
+        }
+
+        .form-control {
+            margin-top: 1rem;
+        }
+
+        #create-bill {
+            margin-top: 1rem;
+            width: 100%;
+            background-color: #FCD778;
+            font-size: 1rem;
+            color: #F57927;
+        }
+
+        #create-bill:hover {
+            background-color: #CE0249;
+            color: lightpink;
+        }
+
+        table {
+            text-align: center;
+        }
+
+        input.cost.form-control {
+            margin-top: 0;
         }
     </style>
 
@@ -21,29 +88,30 @@
 </head>
 <body>
 
-<h1 style="text-align: center">Budget Manager</h1>
-<p style="text-align: center">(ADD, EDIT, DELETE PRACTICE)</p>
-
 <div class="row">
 
     <div class="col-md-4"></div>
 
-    <div class="col-md-4">
+    <div class="col-md-4" id="card-container">
+
+        <h1 style="text-align: center">Budget Manager</h1>
 
         <div class="card card-body">
 
-            <button class="btn btn-sm btn-primary" id="add-bill">ADD BILL</button>
+            <button class="btn" id="add-bill">New Bill</button>
 
             <div class="form-wrapper hidden" id="form-wrapper">
                 <select class="form-control" id="bill-name">
-                    <option>---------------------</option>
+                    <option>Select</option>
                     <option>Rent</option>
                     <option>Electrical</option>
                     <option>Gas</option>
+                    <option>Groceries</option>
+                    <option>Goodies</option>
                 </select>
 
                 <input class="form-control" type="text" id="bill-cost">
-                <button class="btn btn-sm btn-warning" id="create-bill">ADD</button>
+                <button class="btn" id="create-bill">Add Bill</button>
 
             </div>
 
@@ -53,7 +121,7 @@
         <table class="table table-dark">
 
             <thead>
-            <tr>
+            <tr id="table-labels">
                 <th scope="col">BILL NAME</th>
                 <th scope="col">COST</th>
                 <th scope="col"></th>
@@ -137,11 +205,11 @@
                         <td>${object.name}</td>
                         <td id="cost-${object.id}" data-testid="${object.id}" class="cost">${object.cost}</td>
                         <td>
-                        <button class="btn btn-sm btn-danger" data-testid="${object.id}" id="delete-${object.id}">Delete</button>
-                        <button class="btn btn-sm btn-info" disabled data-testid="${object.id}" id="save-${object.id}">Save</button>
+                        <button class="btn btn-sm btn-danger" data-testid="${object.id}" id="delete-${object.id}" style="margin-top: .3rem">Delete</button>
+                        <button class="btn btn-sm btn-info" disabled data-testid="${object.id}" id="save-${object.id}" style="margin-top: .3rem">Save</button>
 
-                        <button class="btn btn-sm btn-danger hidden" data-testid="${object.id}" id="cancel-${object.id}">Cancel</button>
-                        <button class="btn btn-sm btn-primary hidden" data-testid="${object.id}" id="confirm-${object.id}">Confirm</button>
+                        <button class="btn btn-sm btn-danger hidden" data-testid="${object.id}" id="cancel-${object.id}" style="margin-top: .3rem">Cancel</button>
+                        <button class="btn btn-sm btn-primary hidden" data-testid="${object.id}" id="confirm-${object.id}" style="margin-top: .3rem">Confirm</button>
                         </td>
                     </tr>`
         $('#bill-table').append(row);
@@ -154,7 +222,7 @@
         $(`#save-${object.id}`).on('click', saveUpdate);
     }
 
-    //ADDING AN INPUT FORM TO MANUALLY CHANCE THE COST ON THIS FUNCTION
+    //ADDING AN INPUT FORM TO MANUALLY CHANGE THE COST TO ANY BILL ON THIS FUNCTION
     function editCost() {
         let testid = $(this).data('testid');
 
@@ -165,7 +233,7 @@
         $(this).unbind();
 
         //ADDING A DYNAMIC HTML TO CHANGE THE COST WHEN THE BUTTON IS CLICKED
-        $(this).html(`<input class="cost form-control" data-testid="${testid}" type="text" value="${value}">`);
+        $(this).html(`<input class="cost form-control" data-testid="${testid}" type="text" value="${value}" style="margin-top: .3rem">`);
 
         //ADDING AN EVENT LISTENER TO MY COST SO WHEN THE USER INPUTS DATA, THE SAVE BUTTON IS ENABLED AND READY TO SAVE THE NEW DATA
         $('.cost').on('keyup', function() {
