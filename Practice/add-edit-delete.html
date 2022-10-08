@@ -10,12 +10,14 @@
     <!--BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-
+<!--CSS INTERNAL-->
     <style>
         .hidden {
             display: none;
         }
     </style>
+
+
 </head>
 <body>
 
@@ -30,9 +32,9 @@
 
         <div class="card card-body">
 
-            <button class="btn btn-sm btn-danger" id="add-bill">ADD BILL</button>
+            <button class="btn btn-sm btn-primary" id="add-bill">ADD BILL</button>
 
-            <div class="form-wrapper hidden">
+            <div class="form-wrapper hidden" id="form-wrapper">
                 <select class="form-control" id="bill-name">
                     <option>---------------------</option>
                     <option>Rent</option>
@@ -54,6 +56,7 @@
             <tr>
                 <th scope="col">BILL NAME</th>
                 <th scope="col">COST</th>
+                <th scope="col"></th>
             </tr>
             </thead>
 
@@ -74,6 +77,31 @@
 
 <!--THE FUN STUFF-->
 <script>
+
+    let newId = 4;
+    let newBill = {"id": newId, "name": null, "cost": null};
+
+    $('#add-bill').on('click', function() {
+        const formWrapper = document.getElementById("form-wrapper");
+        formWrapper.classList.remove('hidden');
+    });
+
+    $('#bill-name').on('change', function() {
+        newBill.name = $(this).val();
+        console.log(newBill);
+
+    });
+
+    $('#bill-cost').on('keyup', function() {
+        newBill.cost = $(this).val();
+        console.log(newBill);
+
+    });
+
+    $('#create-bill').on('click', function() {
+
+    });
+
 
     let bills = [
         {
@@ -96,12 +124,116 @@
     console.log(bills);
     console.table(bills);
 
-    function addRow(object) {
-        let row = `<tr scope="row" class="text-row-${obj.id}">
-
-</tr>`
+    for(let i in bills) {
+        addRow(bills[i]);
     }
 
+    function addRow(object) {
+        let row = `
+                    <tr scope="row" id="text-row-${object.id}">
+                        <td>${object.name}</td>
+                        <td id="cost-${object.id}" data-testid="${object.id}" class="cost">${object.cost}</td>
+                        <td>
+                        <button class="btn btn-sm btn-danger" data-testid="${object.id}" id="delete-${object.id}">Delete</button>
+                        <button class="btn btn-sm btn-info" disabled data-testid="${object.id}" id="save-${object.id}">Save</button>
+
+                        <button class="btn btn-sm btn-danger hidden" data-testid="${object.id}" id="cancel-${object.id}">Cancel</button>
+                        <button class="btn btn-sm btn-primary hidden" data-testid="${object.id}" id="confirm-${object.id}">Confirm</button>
+                        </td>
+                    </tr>`
+        $('#bill-table').append(row);
+
+        //DOM AND FUNCTIONALITY COME TOGETHER WITH EVENT LISTENERS
+        $(`#delete-${object.id}`).on('click', deleteBill);
+        $(`#cancel-${object.id}`).on('click', cancelDeletion);
+        $(`#confirm-${object.id}`).on('click', confirmDeletion);
+        $(`#cost-${object.id}`).on('click', editCost);
+        $(`#save-${object.id}`).on('click', saveUpdate);
+    }
+
+    //ADDING AN INPUT FORM TO MANUALLY CHANCE THE COST ON THIS FUNCTION
+    function editCost() {
+        let testid = $(this).data('testid');
+
+        //CREATING A VARIABLE THAT HOLDS THE VALUE THE USER INPUTS WHEN EDITING THE COST OF BILL ADDED TO THE LIST
+        let value = $(this).html();
+
+        //GOT TO UNBIND THIS SO THE INPUT FORM DOESN'T SHOWCASE THE NEW DYNAMIC HTML WITHIN THE FORM
+        $(this).unbind();
+
+        //ADDING A DYNAMIC HTML TO CHANGE THE COST WHEN THE BUTTON IS CLICKED
+        $(this).html(`<input class="cost form-control" data-testid="${testid}" type="text" value="${value}">`);
+
+        //ADDING AN EVENT LISTENER TO MY COST SO WHEN THE USER INPUTS DATA, THE SAVE BUTTON IS ENABLED AND READY TO SAVE THE NEW DATA
+        $('.cost').on('keyup', function() {
+            let testid = $(this).data('testid');
+            let saveBtn = $(`#save-${testid}`);
+            saveBtn.prop('disabled', false);
+        })
+
+    }
+
+    //ADD FUNCTIONALITY TO MY SAVE BUTTON
+    function saveUpdate() {
+        let testid = $(this).data('testid');
+        let saveBtn = $(`#save-${testid}`);
+        let row = $(`#text-row-${testid}`);
+
+        saveBtn.prop('disabled', true);
+        row.css('opacity', '0.5');
+
+        setTimeout(function() {
+           row.css('opacity', '1');
+        }, 2000);
+
+
+    }
+
+    //ADD FUNCTIONALITY TO MY DELETE BUTTON
+   function deleteBill() {
+       let testid = $(this).data('testid');
+
+
+       //CALLING THE DOM
+       const deleteBtn = document.getElementById(`delete-${testid}`);
+       const saveBtn = document.getElementById(`save-${testid}`);
+       const cancelBtn = document.getElementById(`cancel-${testid}`);
+       const confirmBtn = document.getElementById(`confirm-${testid}`);
+
+
+       deleteBtn.classList.add('hidden');
+       saveBtn.classList.add('hidden');
+
+       cancelBtn.classList.remove('hidden');
+       confirmBtn.classList.remove('hidden');
+   }
+
+    //ADD FUNCTIONALITY TO MY CANCEL BUTTON
+    function cancelDeletion() {
+        let testid = $(this).data('testid');
+
+        //CALLING THE DOM
+        const deleteBtn = document.getElementById(`delete-${testid}`);
+        const saveBtn = document.getElementById(`save-${testid}`);
+        const cancelBtn = document.getElementById(`cancel-${testid}`);
+        const confirmBtn = document.getElementById(`confirm-${testid}`);
+
+
+        deleteBtn.classList.remove('hidden');
+        saveBtn.classList.remove('hidden');
+
+        cancelBtn.classList.add('hidden');
+        confirmBtn.classList.add('hidden');
+    }
+
+    //ADD FUNCTIONALITY TO MY CONFIRM BUTTON
+    function confirmDeletion() {
+        let testid = $(this).data('testid');
+
+        //CALLING THE DOM FROM MY DYNAMIC HTML TO DELETE EACH ROW WHEN BUTTON IS CLICKED
+        let row = document.getElementById(`text-row-${testid}`);
+        row.remove();
+    }
 
 </script>
 </body>
