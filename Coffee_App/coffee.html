@@ -5,8 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Café con Leche</title>
+    <title>Long Live the Queen</title>
 
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Uncial+Antiqua&display=swap" rel="stylesheet">
     <!--EXTERNAL CSS-->
     <link rel="stylesheet" href="coffee.css">
     <!--BOOTSTRAP-->
@@ -15,43 +19,36 @@
 <body>
 
 <!--NAVBAR-->
-<nav class="navbar bg-light sticky-top">
+<nav class="navbar sticky-top">
 
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Offcanvas navbar</a>
+            <h4 class="text-light">Westeros' Coffea</h4>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Westeros' Coffea</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#pills-tab">Menu</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pills-profile">Order Now</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pills-contact">Contact</a>
                         </li>
                     </ul>
                     <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Search a Market Near You" aria-label="">
+                        <button class="btn btn-outline-success" type="submit">Aye!</button>
                     </form>
                 </div>
             </div>
@@ -61,11 +58,10 @@
 <!--JUMBOTRON-->
 <header>
 
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Custom jumbotron</h1>
-            <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-            <button class="btn btn-primary btn-lg" type="button">Example button</button>
+    <div class="p-5 rounded-3">
+        <div class="container-fluid py-5 text-light">
+            <h1 class="display-5 fw-bold">Changing the Seven Kingdoms Through Coffee</h1>
+            <p class="col-md-8 fs-4">Since 700 BC, Westeros' Caffea has been committed to sourcing only 100% fair trade, organic and shade-grown coffee from indigenous mass. Westeros' Caffea coffee is grown by native Westeros farmers living in the highlands of King's Landing.</p>
         </div>
     </div>
 
@@ -77,13 +73,13 @@
     <section id="navTabs">
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Menu</button>
+                <button class="nav-link active mt-3" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Menu</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+                <button class="nav-link mt-3" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Order Now</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+                <button class="nav-link mt-3" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
             </li>
         </ul>
 
@@ -102,7 +98,7 @@
                                         Roast:
                                         <span>Light</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +111,7 @@
                                     Roast:
                                     <span>Light</span>
                                 </p>
-                                <p>$8.75</p>
+                                <p class="price">$8.75</p>
                             </div>
                         </div>
                         </div>
@@ -128,7 +124,7 @@
                                     Roast:
                                     <span>Light</span>
                                 </p>
-                                <p>$8.75</p>
+                                <p class="price">$8.75</p>
                             </div>
                         </div>
                         </div>
@@ -141,7 +137,7 @@
                                     Roast:
                                     <span>Medium</span>
                                 </p>
-                                <p>$8.75</p>
+                                <p class="price">$8.75</p>
                             </div>
                         </div>
                         </div>
@@ -154,7 +150,7 @@
                                         Roast:
                                         <span>Medium</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +163,7 @@
                                         Roast:
                                         <span>Medium</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +176,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -193,7 +189,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +202,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +215,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +228,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -245,7 +241,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +254,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -271,7 +267,7 @@
                                         Roast:
                                         <span>Dark</span>
                                     </p>
-                                    <p>$8.75</p>
+                                    <p class="price">$8.75</p>
                                 </div>
                             </div>
                         </div>
@@ -283,8 +279,16 @@
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                 <div class="container text-center">
                     <div class="row">
-                        <div class="col-6" id="coffeesBody">
-                           <!--DYNAMIC HTML-->
+                        <div class="col-6">
+
+                            <div class="container">
+                                <h3 class="mt-5 text-center" id="para">Uh Oh!</h3>
+
+                                <div class="row" id="showProd">
+                                    <!--DYNAMIC HTML-->
+                                </div>
+                            </div>
+
                         </div>
                         <div class="col-6">
                             <div id="addForm">

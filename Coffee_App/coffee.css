@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+nav h5, nav h4, header h1, .card h5, .price {
+    font-family: 'Uncial Antiqua', cursive;
+}
+
+header p, nav a, form, .nav-item, .card-text {
+    font-family: 'Alice', serif;
+}
+
+nav {
+    background-color: #4f2424;
+}
+
+header {
+    background-image: url("../IMG/coffee-beans-national-geographic.gif") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+main {
+    background-color: #bca48c;
+    border: 2px solid #69393a;
+}

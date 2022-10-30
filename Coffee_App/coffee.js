@@ -22,69 +22,31 @@ const coffees = [
 console.table(coffees);
 
 
-// function renderCoffee(coffee) {
-//     var html = '<tr class="coffee">';
-//     html += '<td>' + coffee.id + '</td>';
-//     html += '<td>' + coffee.name + '</td>';
-//     html += '<td>' + coffee.roast + '</td>';
-//     html += '</tr>';
+// function renderNewHTML(coffeeOption) {
+//     let html = `<div class="card" style="width: 18rem;">
+//   <div class="card-body">
+//     <p>${coffeeOption.id}</p>
+//     <h5 class="card-title">${coffeeOption.name}</h5>
+//     <h6 class="card-subtitle mb-2 text-muted">${coffeeOption.roast}</h6>
+//   </div>
+// </div>`
 //
 //     return html;
 // }
-
-//CALLING THE DOM
-
-// let coffeesBody = document.getElementById('coffeesBody');
 //
-// function renderCoffee(coffee) {
-//     let html = '';
-//     for(let i = 0; i > coffees.length; i++) {
-//         html += `<div class="card" style="width: 18rem;">
-//           <div class="card-body">
-//             <p>${coffee[i].id}</p>
-//             <h5 class="card-title">${coffee[i].name}</h5>
-//             <h6 class="card-subtitle mb-2 text-muted">${coffee[i].roast}</h6>
-//           </div>
-//         </div>`
-//     }
-//     $('#coffeesBody').html(`<h3>Menu</h3>` + html);
-// }
 //
-// renderCoffee();
-//
-
-
-
-function renderCoffee(coffee) {
-    var html = `<div class="col-lg-6 m-0 p-0">
-    <div class="card d-flex justify-content-center align-items-center lh-1" style="font-family: 'Glegoo', serif; border-color: white;">
-    <h4 class="text-capitalized fs-3" style="color: #4D2B1E">${coffee.name}</h4>
-    <p class="text-center mt-2 fs-5" style="color: #AB6832; font-family: 'Literata', serif;">${coffee.roast}</p>
-    </div></div>`;
-
-    return html;
-}
-
-
-function renderCoffees(coffees) {
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
-    }
-    return html;
-}
-
-renderCoffees();
-
 //
 // function renderCoffees(coffees) {
-//     var html = '';
-//     for(var i = coffees.length - 1; i >= 0; i--) {
-//         html += renderCoffee(coffees[i]);
+//     let html = '';
+//     for(let i = coffees.length - 1; i >= 0; i--) {
+//         html += renderNewHTML(coffees[i]);
 //     }
 //     return html;
 // }
 //
+// renderCoffees(coffees);
+
+
 // function updateCoffees(e) {
 //     e.preventDefault(); // don't submit the form, we just want to update the data
 //     var selectedRoast = roastSelection.value;
