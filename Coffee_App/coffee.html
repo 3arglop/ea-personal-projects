@@ -279,8 +279,9 @@
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                 <div class="container text-center">
                     <div class="row">
-                        <div class="col-6">
 
+                        <div class="col-6">
+                            <!--RENDER DATA WITH JS HERE -->
                             <div class="container">
                                 <h3 class="mt-5 text-center" id="para" style="display: none">Uh Oh!</h3>
 
@@ -290,9 +291,35 @@
                             </div>
 
                         </div>
-                        <div class="col-6">
-                            <div id="addForm">
 
+                        <div class="col-6">
+                            <!--JS EVENTS WILL BE USED FOR THIS FORM-->
+                            <div id="addForm">
+                                <!--EVENTS: SORTING THRU ROASTS AND BY NAME-->
+                                <form method="POST" action="https://request-inspector.glitch.me/">
+                                    <label for="roastSelection">Roast</label>
+                                    <br>
+                                    <select id="roastSelection" class="w-50" aria-label="Default select example">
+                                        <option selected>All</option>
+                                        <option value="lightRoast">Light</option>
+                                        <option value="mediumRoast">Medium</option>
+                                        <option value="darkRoast">Dark</option>
+                                    </select>
+
+                                    <br>
+
+                                    <label for="coffeeName" class="mt-3">Coffee Name</label>
+                                    <br>
+                                    <input type="text" class="w-50" name="coffeeName" id="coffeeName" placeholder="Espresso">
+
+                                    <br>
+
+                                    <button type="button" class="btn btn-outline-dark mt-3">Dark</button>
+                                </form>
+
+                                <hr>
+
+                                <!--EVENTS: ADDING A NEW COFFEE BY NAME AND SELECTING A ROAST-->
                                 <form method="POST" action="https://request-inspector.glitch.me/">
                                     <label for="roastSelection">Roast</label>
                                     <br>
