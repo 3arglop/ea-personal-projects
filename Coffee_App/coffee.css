@@ -6,7 +6,7 @@ nav h5, nav h4, header h1, .card h5, .price {
     font-family: 'Uncial Antiqua', cursive;
 }
 
-header p, nav a, form, .nav-item, .card-text {
+header p, nav a, form, .nav-item, .card-text, .price span, #showProd h6 {
     font-family: 'Alice', serif;
 }
 
@@ -24,4 +24,47 @@ header {
 main {
     background-color: #bca48c;
     border: 2px solid #69393a;
+}
+
+#navTabs button {
+    color: white;
+    background-color: #69393a;
+    margin: .25rem;
+}
+
+.card-body h5 {
+    color: #985d57;
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.card-text {
+    font-style: italic !important;
+    font-size: 1.2rem;
+}
+
+.card-text span {
+    color: #AAA549;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 1.4rem;
+    color: #765341;
+}
+
+#productCard {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+}
+
+#showProd h5 {
+    color: #EDE7DD !important;
+    font-size: 2rem;
+}
+
+#showProd h6 {
+    color: #4f2424 !important;
+    font-size: 1.25rem;
 }

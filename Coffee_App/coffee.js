@@ -20,31 +20,32 @@ const coffees = [
 ];
 
 console.table(coffees);
+console.log(coffees[0]);
+console.log(coffees[0].name);
+console.log(coffees[11].roast);
 
 
-// function renderNewHTML(coffeeOption) {
-//     let html = `<div class="card" style="width: 18rem;">
-//   <div class="card-body">
-//     <p>${coffeeOption.id}</p>
-//     <h5 class="card-title">${coffeeOption.name}</h5>
-//     <h6 class="card-subtitle mb-2 text-muted">${coffeeOption.roast}</h6>
-//   </div>
-// </div>`
-//
-//     return html;
-// }
-//
-//
-//
-// function renderCoffees(coffees) {
-//     let html = '';
-//     for(let i = coffees.length - 1; i >= 0; i--) {
-//         html += renderNewHTML(coffees[i]);
-//     }
-//     return html;
-// }
-//
-// renderCoffees(coffees);
+//CAllING THE DOM
+let showProdBody = $('#showProd');
+console.log(showProdBody);
+
+//ITERATING THRU MY DATA
+let html = '';
+coffees.forEach((coffee) => {
+        html += `<div class="card" style="width: 18rem;" id="productCard">
+                  <div class="card-body py-1">
+                    <p style="display: none">${coffee.id}</p>
+                    <h5 class="card-title">${coffee.name}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${coffee.roast}</h6>
+                  </div>
+                </div>`
+    }
+);
+
+//CONNECTING MY DYNAMIC HTML WITH THE DOM
+showProdBody.html(html);
+
+
 
 
 // function updateCoffees(e) {
@@ -58,7 +59,8 @@ console.table(coffees);
 //     });
 //     tbody.innerHTML = renderCoffees(filteredCoffees);
 // }
-//
+
+
 // var tbody = document.querySelector('#coffees');
 // var submitButton = document.querySelector('#submit');
 // var roastSelection = document.querySelector('#roast-selection');
