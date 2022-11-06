@@ -311,7 +311,6 @@ const greetings = {
 
 console.log(greetings);
 greetings.love("kyle");
-greetings.hate("greg abbbott");
 greetings.hello("Batman");
 greetings.bye("Harry Styles");
 greetings.food("Jon Snow");
@@ -346,3 +345,36 @@ const meowFunc = cat.meow;
 
 // meowFunc();
 // cat.meow();
+
+//
+const hen = {
+    name : 'Helen',
+    eggCount : 0,
+    layAnEgg() {
+        this.eggCount++;
+        return "EGG";
+
+    }
+}
+
+console.log(hen.name); // "Helen"
+console.log(hen.eggCount); // 0
+console.log(hen.layAnEgg()); // "EGG"
+console.log(hen.layAnEgg()); // "EGG"
+console.log(hen.eggCount); // 2
+
+//
+function yell(msg) {
+    try {
+        console.log(msg.toUpperCase().repeat(5));
+    } catch (e) {
+        console.log(e);
+        console.log("Pass a string next time!");
+    }
+}
+
+yell(63547635487);
+yell("ILY");
+yell("😜");
+
+//
