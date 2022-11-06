@@ -6,7 +6,7 @@ nav h5, nav h4, header h1, .card h5, .price {
     font-family: 'Uncial Antiqua', cursive;
 }
 
-header p, nav a, form, .nav-item, .card-text, .price span, #showProd h6 {
+header p, nav a, form, .nav-item, .card-text, .price span, #showProd h6, form h5 {
     font-family: 'Alice', serif;
 }
 
@@ -59,12 +59,12 @@ main {
     padding: 0;
 }
 
-#showProd h5 {
+#showProd h5, form h5 {
     color: #EDE7DD !important;
-    font-size: 2rem;
 }
 
 #showProd h6 {
     color: #4f2424 !important;
     font-size: 1.25rem;
 }
+

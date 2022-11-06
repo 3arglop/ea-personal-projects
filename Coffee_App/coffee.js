@@ -35,7 +35,7 @@ coffees.forEach((coffee) => {
         html += `<div class="card" style="width: 18rem;" id="productCard">
                   <div class="card-body py-1">
                     <p style="display: none">${coffee.id}</p>
-                    <h5 class="card-title">${coffee.name}</h5>
+                    <h5 class="card-title fs-2">${coffee.name}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">${coffee.roast}</h6>
                   </div>
                 </div>`
