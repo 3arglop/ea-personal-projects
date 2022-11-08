@@ -11,7 +11,7 @@ let currentQuestion = 0;
 
 //CALLING MY JSON FILE: HELLO DATA
 const fetchQuizData = () => {
-    const URL = "../DATA/quiz-data.json"
+    const URL = "quiz-data.json"
 
     fetch(URL)
         .then(response => {
