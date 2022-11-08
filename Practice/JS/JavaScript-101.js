@@ -621,9 +621,9 @@ const movies = [
 
 
 //THREE
-// let titles = movies.map(movie => {
-//     return `${movie.title} -- ${movie.score / 10}`;
-// });
+// let titles = movies.map(movie => (
+//     `${movie.title} -- ${movie.score / 10}`
+// ));
 //
 // console.log(titles);
 
@@ -631,3 +631,287 @@ const movies = [
 //FOUR
 let titles = movies.map(movie => `${movie.title} -- ${movie.score / 10}`);
 console.log(titles);
+
+//
+let helloEl = document.getElementById('hello');
+
+setTimeout(() => {
+    helloEl.innerText = "HELLO WORLD!";
+}, 3000);
+
+//
+let dateEl = document.getElementById('date');
+
+setInterval(() => {
+    const currentDate = new Date();
+    // console.log(currentDate);
+    dateEl.innerText = currentDate;
+}, 1000)
+
+//
+const multiplesFive = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
+console.log(multiplesFive);
+
+const evens = multiplesFive.filter(num => {
+    return num % 2 === 0;
+});
+console.log(evens);
+
+const lessFifty = multiplesFive.filter(x => x < 50);
+console.log(lessFifty);
+
+const odds = multiplesFive.filter(y => y % 2 !== 0);
+console.log(odds);
+
+//
+const songs = [
+    {
+        name: "Objects In the Mirror",
+        artist: "Mac Miller",
+        year: 2013,
+        genre: "Hip Hop"
+    },
+    {
+        name: "Testarossa Music",
+        artist: "ZHU",
+        year: 2015,
+        genre: "Dance"
+    },
+    {
+        name: "Gotta Get Thru This ",
+        artist: "Daniel Bedingfield",
+        year: 2011,
+        genre: "Pop"
+    },
+    {
+        name: "Rasputin",
+        artist: "Boney M.",
+        year: 1978,
+        genre: "Pop"
+    },
+    {
+        name: "Sodade",
+        artist: "Cesária Evora & Bonga",
+        year: 1990,
+        genre: "Worldwide"
+    },
+    {
+        name: "Draco",
+        artist: "Future",
+        year: 2017,
+        genre: "Hip Hop"
+    },
+    {
+        name: "Daydream Interlude ",
+        artist: "Mariah Carey",
+        year: 1995,
+        genre: "Pop"
+    },
+    {
+        name: "Could Heaven Ever Be Like This",
+        artist: "Idris Muhammad",
+        year: 1977,
+        genre: "Jazz"
+    },
+    {
+        name: "Y Volveré",
+        artist: "Los Ángeles Negros",
+        year: 1970,
+        genre: "Latin"
+    },
+    {
+        name: "Let's Stay Together",
+        artist: "Al Green",
+        year: 1972,
+        genre: "Soul"
+    },
+    {
+        name: "Nothings Into Somethings",
+        artist: "Drake",
+        year: 2017,
+        genre: "Hip Hop"
+    }
+]
+
+console.table(songs);
+
+const songNames = songs.map(song => song.name);
+console.table(songNames);
+
+const seventySongs = songs.filter(song => song.year < 1980);
+console.table(seventySongs);
+
+// console.log(seventySongs[0].name);
+
+const popSongs = songs.filter(song => song.genre === "Pop");
+console.table(popSongs);
+
+//PERFECT EXAMPLE OF HOW MAP AND FILTER WORK PERFECTLY TOGETHER!!! CHAIN METHODS RULE!!!!!!
+const artist = songs.filter(song => song.artist).map(artist => artist.artist)
+console.table(artist);
+
+//CALLING THE DOM
+const songEl = document.getElementById('songs');
+const seventyEl = document.getElementById('seventy');
+const popEl = document.getElementById('pop');
+const artistEl = document.getElementById('artist');
+
+
+const renderSongs = () => {
+    let html = '';
+    for(let i = 0; i < songNames.length; i++) {
+        html += `<p>${songNames[i]}</p>`
+        // console.log(html);
+    }
+    songEl.innerHTML = html;
+}
+renderSongs();
+
+
+const renderSeventies = () => {
+    let newHTML = '';
+    for(let i = 0; i < seventySongs.length; i++) {
+        newHTML += `<p>${seventySongs[i].name} --
+                    <span style="color: black">${seventySongs[i].year}</span></p>`
+                    // console.log(newHTML);
+    }
+    seventyEl.innerHTML = newHTML;
+}
+renderSeventies();
+
+const renderPop = () => {
+    let htmlNew = '';
+    for(let i = 0; i < popSongs.length; i++) {
+        htmlNew += `<p>${popSongs[i].name} [
+                    <span style="color: deepskyblue">${popSongs[i].genre}</span> ]</p>`
+    }
+    popEl.innerHTML = htmlNew;
+}
+renderPop();
+
+const renderArtist = () => {
+    let string = '';
+    for(let i = 0; i < artist.length; i++) {
+        string += `<p>${artist[i]}</p>`
+    }
+    artistEl.innerHTML = string;
+}
+renderArtist();
+
+
+//TODO: Let's get some practice using the filter method. Write a function called validUserNames that accepts an array of usernames (strings).  It should return a new array, containing only the usernames that are less than 10 characters.
+
+const validUserNames = (usernames) => {
+    let lessThanTenChar = usernames.filter(username => {
+        if(username.length < 10) {
+            return username;
+        }
+    });
+    return lessThanTenChar;
+}
+
+console.log(validUserNames(['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']));
+
+//
+const examScores = [76, 80, 99, 100, 65, 70, 76, 84, 92, 95, 77, 100];
+
+//EVERY AND SOME WILL RETURN BOOLEAN VALUES. THIS IS USED TO MAKE SURE MY ARRAY IS TRUE/FALSE OR A FUNCTION IS TRUE/FALSE
+
+const isEveryScorePassing = examScores.every(score => score >= 60);
+console.log(isEveryScorePassing); // true
+
+//HOWEVER, BECAUSE MY LOWEST SCORE IS A 65 AND MY PASSING SCORE IS A 75, IT WILL RETURN false!
+
+const isPassing = examScores.some(score => score >= 75);
+console.log(isPassing); // true
+
+//IN THIS CASE, IT WILL RETURN true BECAUSE ITS ONLY COMPARING SOME NOT EVERY ELEMENT/VALUE!!!!
+
+
+//TODO: Define a function called allEvens that accepts a single array of numbers.  If the array contains all even numbers, return true.  Otherwise, return false.
+
+const allEvens = (arr) => arr.every(num => num % 2 === 0);
+console.log(allEvens([2,4,6,8]));
+console.log(allEvens([1, 4, 6, 8]));
+console.log(allEvens([1, 2, 3]));
+
+//
+const reduceExample = [3, 5, 7, 9, 11].reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+});
+console.log(reduceExample);
+
+//
+const prices = [9.99, 10.75, 12.99, 50.00, 19.99, 1.50];
+
+//OLD WAY OF ADDING EVERY VALUE IN AN ARRAY
+let total = 0;
+for(let price of prices) {
+    console.log(price);
+    total += price
+}
+console.log(total);
+
+//USING REDUCE
+const total2 = prices.reduce((total, price) => {
+    console.log(total);
+    console.log(price);
+    return total + price;
+});
+console.log(total2);
+
+const lowestPrice = prices.reduce((min, price) => {
+    if(price < min) {
+        console.log(price);
+        return price;
+    }
+    console.log(min);
+    return min;
+});
+
+console.log(lowestPrice);
+
+//
+const topMovies = [
+    {
+        title: "Black Adam",
+        rating: 91
+    },
+    {
+        title: "All Quiet On The Western Front",
+        rating: 90
+    },
+    {
+        title: "Enola Holmes 2",
+        rating: 81
+    },
+    {
+        title: "The Banshees Of Inisherin",
+        rating: 77
+    },
+    {
+        title: "Barbarian",
+        rating: 67
+    },
+    {
+        title: "The Good Nurse",
+        rating: 77
+    },
+    {
+        title: "The Stranger",
+        rating: 63
+    }
+]
+
+console.table(topMovies);
+
+const highestRating = topMovies.reduce((bestMovie, currMovie) => {
+        if(currMovie.rating > bestMovie.rating) {
+            // console.log(currMovie);
+            return currMovie;
+        }
+    // console.log(bestMovie);
+    return bestMovie;
+});
+
+console.log(highestRating);
