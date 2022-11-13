@@ -915,3 +915,20 @@ const highestRating = topMovies.reduce((bestMovie, currMovie) => {
 });
 
 console.log(highestRating);
+
+//
+const myinfo = {
+    firstName: 'Lucy-Marie Ann',
+    lastName: 'Cow Smith',
+    fullName: function() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    shoutName: function() {
+        setTimeout(function() {
+            console.log(myinfo.fullName().toUpperCase());
+        }, 3000)
+    }
+}
+
+console.log(myinfo.fullName());
+myinfo.shoutName();
