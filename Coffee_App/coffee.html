@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Long Live the Queen</title>
 
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/268742b2d0.js" crossorigin="anonymous"></script>
     <!--GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,7 +87,7 @@
 
         <!--CONTENT FOR COFFEE DETAILS-->
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="tab-pane fade show active mb-5" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
                 <div class="container text-center">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 d-flex justify-content-center align-items-center">
@@ -276,7 +278,7 @@
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            <div class="tab-pane fade mb-4" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                 <div class="container text-center">
                     <div class="row">
 
@@ -312,11 +314,10 @@
 
                                     <label for="coffeeName" class="mt-3 fs-4">Coffee Name</label>
                                     <br>
-                                    <input type="text" class="w-75" name="coffeeName" id="coffeeName" placeholder="Espresso">
+                                    <input type="text" class="w-75 mb-4" name="coffeeName" id="coffeeName" placeholder="Espresso">
 
                                     <br>
 
-                                    <button type="button" class="btn btn-outline-dark mt-3 w-50">Aye!</button>
                                 </form>
 
                                 <hr>
@@ -352,61 +353,96 @@
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">...</div>
+            <div class="tab-pane fade mb-5" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                <form action="POST">
+                    <div class="mb-3">
+                        <h1>Contact Us!</h1>
+                        <p>We understand your time is valuable as we fight war after war. Let us know how we can better satisfy your experience.</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">How can we help you?</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <button type="button" class="btn w-100">Submit</button>
+                </form>
+            </div>
 
         </div>
     </section>
 
 </main>
 
-    <!--FOOTER-->
-    <footer class="bd-footer bg-light">
+<!--FOOTER-->
+<footer class="bd-footer">
         <div class="container py-4 py-md-5 px-4 px-md-3">
-            <div class="row">
-                <div class="col-lg-3 mb-3">
-                    hi
-                </div>
-                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                    <h5>Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="/">Home</a></li>
-                        <li class="mb-2"><a href="/docs/5.2/">Docs</a></li>
-                        <li class="mb-2"><a href="/docs/5.2/examples/">Examples</a></li>
-                        <li class="mb-2"><a href="https://icons.getbootstrap.com/">Icons</a></li>
-                        <li class="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
-                        <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
-                        <li class="mb-2"><a href="https://cottonbureau.com/people/bootstrap">Swag Store</a></li>
+                <div class="mb-3">
+                    <ul class="list-unstyled d-flex justify-content-center align-items-center fs-2">
+                        <li class="mb-2 mx-3">
+                            <a href="/">
+                                <i class="fa-brands fa-spotify"></i>
+                            </a>
+                        </li>
+
+                        <li class="mb-2 mx-3">
+                            <a href="/docs/5.2/">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                        </li>
+
+                        <li class="mb-2 mx-3">
+                            <a href="/docs/5.2/examples/">
+                                <i class="fa-brands fa-pinterest"></i>
+                            </a>
+                        </li>
+
+                        <li class="mb-2 mx-3">
+                            <a href="https://icons.getbootstrap.com/">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+
+                        <li class="mb-2 mx-3">
+                            <a href="https://themes.getbootstrap.com/">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </li>
+
+                        <li class="mb-2 mx-3">
+                            <a href="https://blog.getbootstrap.com/">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </li>
+
+                        <li class="mb-2 mx-3">
+                            <a href="https://cottonbureau.com/people/bootstrap">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                        </li>
                     </ul>
-                </div>
-                <div class="col-6 col-lg-2 mb-3">
-                    <h5>Guides</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="/docs/5.2/getting-started/">Getting started</a></li>
-                        <li class="mb-2"><a href="/docs/5.2/examples/starter-template/">Starter template</a></li>
-                        <li class="mb-2"><a href="/docs/5.2/getting-started/webpack/">Webpack</a></li>
-                        <li class="mb-2"><a href="/docs/5.2/getting-started/parcel/">Parcel</a></li>
-                        <li class="mb-2"><a href="/docs/5.2/getting-started/vite/">Vite</a></li>
+
+                    <ul class="list-unstyled d-flex justify-content-center align-items-center" id="infoFooter">
+                        <li><a href="" class="mx-4">Our Coffee</a></li>|
+                        <li><a href="" class="mx-4">Privacy Policy</a></li>|
+                        <li><a href="" class="mx-4">Terms of Use</a></li>|
+                        <li><a href="" class="mx-4">Cookie Preferences</a></li>
                     </ul>
-                </div>
-                <div class="col-6 col-lg-2 mb-3">
-                    <h5>Projects</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="https://github.com/twbs/bootstrap">Bootstrap 5</a></li>
-                        <li class="mb-2"><a href="https://github.com/twbs/bootstrap/tree/v4-dev">Bootstrap 4</a></li>
-                        <li class="mb-2"><a href="https://github.com/twbs/icons">Icons</a></li>
-                        <li class="mb-2"><a href="https://github.com/twbs/rfs">RFS</a></li>
-                        <li class="mb-2"><a href="https://github.com/twbs/bootstrap-npm-starter">npm starter</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-2 mb-3">
-                    <h5>Community</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
-                        <li class="mb-2"><a href="https://github.com/twbs/bootstrap/discussions">Discussions</a></li>
-                        <li class="mb-2"><a href="https://github.com/sponsors/twbs">Corporate sponsors</a></li>
-                        <li class="mb-2"><a href="https://opencollective.com/bootstrap">Open Collective</a></li>
-                        <li class="mb-2"><a href="https://stackoverflow.com/questions/tagged/bootstrap-5">Stack Overflow</a></li>
-                    </ul>
+
+                    <p class="text-center">© 700 BC Westeros' Coffea Company. All rights reserved.</p>
                 </div>
             </div>
         </div>

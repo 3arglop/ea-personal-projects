@@ -2,11 +2,11 @@
     box-sizing: border-box;
 }
 
-nav h5, nav h4, header h1, .card h5, .price {
+nav h5, nav h4, header h1, .card h5, .price, #pills-contact h1, #infoFooter a {
     font-family: 'Uncial Antiqua', cursive;
 }
 
-header p, nav a, form, .nav-item, .card-text, .price span, #showProd h6, form h5 {
+header p, nav a, form, .nav-item, .card-text, .price span, #showProd h6, form h5, footer p {
     font-family: 'Alice', serif;
 }
 
@@ -59,7 +59,7 @@ main {
     padding: 0;
 }
 
-#showProd h5, form h5 {
+#showProd h5, form h5, #pills-contact h1, #pills-contact p {
     color: #EDE7DD !important;
 }
 
@@ -67,4 +67,26 @@ main {
     color: #4f2424 !important;
     font-size: 1.25rem;
 }
+
+#pills-contact form {
+    margin: 1rem 3rem;
+    padding: 1rem 7rem;
+}
+
+footer {
+    background-color: #765341 !important;
+}
+
+.fa-brands, #infoFooter a:hover {
+    color: #4f2424 !important;
+}
+
+.fa-brands:hover, #infoFooter a {
+    color: goldenrod !important;
+}
+
+footer p {
+    color: #bca48c !important;
+}
+
 
