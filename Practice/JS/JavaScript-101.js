@@ -932,3 +932,137 @@ const myinfo = {
 
 console.log(myinfo.fullName());
 myinfo.shoutName();
+
+//
+
+// OLD WAY
+// function userRollDie(numSides) {
+//     if(numSides === undefined) {
+//         numSides = 6;
+//     }
+//     return Math.floor(Math.random() * numSides) + 1;
+// }
+
+//NEW WAY
+function userRollDie(numSides = 6) {
+        return Math.floor(Math.random() * numSides) + 1;
+}
+
+console.log(userRollDie());
+console.log(userRollDie(20));
+console.log(userRollDie(8));
+
+//
+function declaringGreeting(person, msg = "Hello") {
+    console.log(`${msg}, ${person}!`);
+}
+
+declaringGreeting("Mr. Incredible", "Watch out");
+declaringGreeting("Mickey Mouse");
+
+
+//SPREAD
+const numeros = [123, 8765, 87127632, 7887986, 1, 0, 6543, 217263, 878, 86, 99, 100];
+
+console.log(numeros);
+
+// const maxNum = Math.max(numeros); //NaN
+
+const maxNum = Math.max(...numeros); // THIS WORKS COS IM SPREADING
+
+console.log(maxNum);
+
+//SPREAD WITH ARRAYS
+
+const oneFive = [1, 2, 3, 4, 5];
+console.log(oneFive);
+const sixTen = [6, 7, 8, 9, 10];
+console.log(sixTen);
+
+const allNums = [...oneFive, ...sixTen, 11, 12, 13, 14, 15]; //SPREAD
+console.log(allNums);
+
+//SPREADING A STRING INTO AN ARRAY
+
+const myMsg = "welcome";
+console.log(myMsg);
+
+const myMsgInArray = [...myMsg]; //SPREAD
+console.log(myMsgInArray);
+
+const vowels = [..."aeiouAEIOU"]; //SPREAD
+console.log(vowels);
+
+//SPREADING AN OBJECT
+const loginInfo = {
+    email: "codytheduck@codeup.com",
+    password: "12345",
+    username: "ih3artCats"
+}
+console.table(loginInfo);
+
+const newUser = {...loginInfo, id: 13, isAdmin: false, gender: "M", age: 24} //SPREAD
+console.table(newUser);
+
+//
+const contestants = ['Diego', 'Silvia', 'Jon', 'Eliza', 'Cameron', 'Sam']
+
+function raceResults(gold, silver, ...contestants) {
+    console.log(`GOLD MEDAL GOES TO: ${gold}`);
+    console.log(`SILVER MEDAL GOES TO: ${silver}`);
+    console.log(`AND THANKS TO EVERYONE ELSE: ${contestants}`);
+}
+
+raceResults('Harry', 'Natasha', contestants);
+
+//DECONSTRUCTING AN ARRAY
+const emmyResults = ['Zendaya', 'Reese Witherspoon', 'Sandra Oh', 'Jodie Comer'];
+
+const [winner, secondPlace, ...rest] = emmyResults;
+
+console.log(winner); //Zendaya
+console.log(secondPlace); //Reese Witherspoon
+console.log(rest); //['Sandra Oh', 'Jodie Comer']
+
+//DECONSTRUCTING AN OBJECT
+const bio = {
+    firstName: "Emmy",
+    lastName: "Noether",
+    born: "March 23, 1882",
+    died: "April 14, 1935",
+    age: 53,
+    nationality: "German",
+    almaMater: "University of Erlangen",
+    knownFor: {
+        a: "Abstract algebra",
+        b: "Theoretical physics",
+        c: "Noether's theorem",
+        d: "Noetherian ring",
+        e: "Lasker–Noether theorem"
+    },
+    gender: "Female",
+    awards: "Ackermann–Teubner Memorial Award"
+}
+console.log(bio);
+
+const { firstName, lastName, nationality } = bio;
+
+console.log(firstName);
+console.log(lastName);
+console.log(nationality);
+
+// const { knownFor } = bio.knownFor; //UNDEFINED
+
+const { ...knownFor } = bio.knownFor; //Object { a: "Abstract algebra", b: "Theoretical physics", c: "Noether's theorem", d: "Noetherian ring", e: "Lasker–Noether theorem" }
+
+console.log(knownFor);
+
+const { a, b, c, d, e } = knownFor; //Abstract algebra Theoretical physics Noether's theorem Noetherian ring Lasker–Noether theorem
+
+console.log(a, b, c, d, e);
+
+const fullName = ({firstName, lastName}) => {
+    console.log(`Nice to meet you, ${firstName} ${lastName}`);
+}
+
+fullName(bio);
